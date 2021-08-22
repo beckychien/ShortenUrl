@@ -46,7 +46,7 @@ class Common:
 
 			# get the max id
 			rows = Common.fetch_db("SELECT Max(id) FROM URL")
-			x = rows[0][0] + 1
+			x = rows[0][0] + 1 if rows[0][0] else 1
 
 			# change id to 62 base to create short url
 			s = ""
