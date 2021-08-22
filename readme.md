@@ -5,7 +5,7 @@
 取得原始碼後於docker-compose.yml所在位置執行以下指令，即可建置並執行Docker container:
 
     [sudo] docker-compose build
-    [sudo] docker-compose up 
+    [sudo] docker-compose up -d
 
 ## Testing
 
