@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  api:
+    container_name: flask-container
+    build: ./myproject
+    entrypoint: python app.py
+    volumes:
+      - ./myproject:/app
+    restart: always
+
+
+  nginx:
+    container_name: nginx-container
+    build: ./compose/nginx
+    ports:
+      - "80:80"
+    expose:
+      - "80"
+    volumes:
+      - ./compose/nginx/log:/var/log/nginx
+      - ./compose/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    links:
+      - api
+    depends_on:
+      - api
+    restart: always
